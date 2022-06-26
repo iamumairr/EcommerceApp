@@ -1,0 +1,117 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ECommerceApp.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - ECommerce App</title>
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <form runat="server">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="~/" runat="server">ECommerce App</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a runat="server" class="nav-link active" aria-current="page" href="~/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a runat="server" href="~/Pages/About" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a runat="server" href="~/Pages/Contact" class="nav-link">Contact</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="true">Categories
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                <li>
+                                    <a class="dropdown-item" runat="server" href="~/Pages/Categories.aspx">All Categories
+                                    </a>
+
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" runat="server" href="~/Pages/AddCategory.aspx">Add Category
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="true">Products
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                <li>
+                                    <a class="dropdown-item" runat="server" href="~/Pages/Products.aspx">Display All
+                                    </a>
+
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" runat="server" href="~/Pages/AddProduct.aspx">Add Product
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <asp:Panel runat="server" ID="RegisterLogin">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a runat="server" href="~/Account/Login" class="btn btn-outline-warning btn-sm mx-1">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a runat="server" href="~/Account/Register" class="btn btn-outline-info btn-sm mx-1">Register</a>
+                            </li>
+                        </ul>
+                    </asp:Panel>
+                    <asp:Panel runat="server" ID="LoginPanel">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a href="~/Pages/Cart.aspx" runat="server" class="nav-link">Cart (<span runat="server" id="cartvalue"></span>)</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">Welcome <span runat="server" id="name"></span>!
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a class="dropdown-item" href="#">Name : <span runat="server" id="username"></span>
+                                        </a>
+
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Email : <span runat="server" id="email"></span>
+                                        </a>
+
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="btn btn-danger btn-sm mx-3" href="~/Account/Logout.aspx" runat="server">Logout</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </asp:Panel>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <footer class="container text-center">
+            <hr />
+            <p>&copy; <%: DateTime.Now.Year %> - E Commerce App</p>
+        </footer>
+    </form>
+</body>
+</html>
